@@ -13,7 +13,7 @@ packer {
 
 variable "project_id" {
   type    = string
-  default = "project-ea36f309-c412-40a0-8d1"
+  default = "{PROJECT_ID_NAME}"
 }
 
 variable "zone" {
