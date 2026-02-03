@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MineCloud Status Page - Version Corrigée pour Architecture Distribuée
+MineCloud Status Page
 """
 
 from flask import Flask, render_template_string
