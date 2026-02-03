@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: mc-server
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      ENABLE_RCON: "true"
+      RCON_PASSWORD: "password123"
+    volumes:
+      - minecraft_data:/data
+    restart: always
+
+  web:
+    build: ./web
+    container_name: mc-web
+    ports:
+      - "5000:5000"
+    depends_on:
+      - minecraft
+    restart: always
+
+  netdata:
+    image: netdata/netdata
+    container_name: netdata
+    ports:
+      - "19999:19999"
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - netdatalib:/var/lib/netdata
+      - netdatacache:/var/cache/netdata
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+
+volumes:
+  minecraft_data:
+  netdatalib:
+  netdatacache:
