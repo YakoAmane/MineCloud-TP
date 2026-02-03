@@ -1,0 +1,17 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+
+# Sécurité & Clés
+.ssh/
+*.pem
+*.key
+credentials.json
+
+# OS & Divers
+.DS_Store
+__pycache__/
+*.log
