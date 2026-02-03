@@ -9,7 +9,7 @@ MineCloud est une solution d'automatisation complète pour le déploiement de se
 
     Configuration : Ansible (Hardening du système et déploiement des conteneurs).
 
-    Monitoring : Interface web via Flask pour le statut du serveur en temps réel.
+    Monitoring : Interface web via Flask pour le statut du serveur en temps réel + netdata pour monitoring CPU/RAM serveur minecraft.
 
     Orchestration : Script Bash unifié pour le pilotage du workflow.
 
