@@ -1,0 +1,40 @@
+---
+- name: Mettre à jour le cache apt et le système
+  apt:
+    update_cache: yes
+    upgrade: dist
+  become: yes
+
+- name: Installer les utilitaires de base
+  apt:
+    name:
+      - curl
+      - git
+      - htop
+      - unzip
+    state: present
+  become: yes
+
+- name: Installer Docker et Docker Compose
+  apt:
+    name:
+      - docker.io
+      - docker-compose-v2
+    state: present
+  become: yes
+
+- name: Activer le service Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Créer l'utilisateur 'minecloud'
+  user:
+    name: minecloud
+    shell: /bin/bash
+    groups: docker
+    append: yes
+    create_home: yes
+  become: yes
