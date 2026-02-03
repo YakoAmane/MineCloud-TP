@@ -45,3 +45,12 @@ chmod +x deploy.sh
 
 # Lancer l'infrastructure complète
 ./deploy.sh
+
+# Contributors
+
+MICSI 25-2
+
+Mattéo Cavalieri
+Thomas Agdag
+Condoris Laurent
+Bonita Virgilio Ethan
