@@ -1,0 +1,29 @@
+---
+- hosts: all
+  user: devops
+  become: yes
+  vars:
+    ansible_ssh_private_key_file: "~/.ssh/minecloud_key"
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+
+  tasks:
+    - name: Créer le dossier pour l'application
+      file:
+        path: /opt/minecloud
+        state: directory
+        owner: minecloud
+        group: docker
+        mode: '0775'
+
+    - name: Copier l'application (Web + Minecraft)
+      copy:
+        src: ../app/
+        dest: /opt/minecloud/
+        owner: minecloud
+        group: docker
+        mode: '0755'
+
+    - name: Lancer les services avec reconstruction
+      command: docker compose up -d --build
+      args:
+        chdir: /opt/minecloud
