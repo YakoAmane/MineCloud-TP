@@ -1,7 +1,7 @@
 ⛏️ MineCloud-TP
 
 MineCloud est une solution d'automatisation complète pour le déploiement de serveurs Minecraft sur Google Cloud Platform (GCP). Le projet implémente les piliers du DevOps : Infrastructure as Code (IaC), Immutable Infrastructure et Configuration Management.
-Stack Technique
+# Stack Technique
 
     Provisioning : Terraform (Gestion des ressources GCP : VM, VPC, Firewall).
 
@@ -13,7 +13,7 @@ Stack Technique
 
     Orchestration : Script Bash unifié pour le pilotage du workflow.
 
-Architecture du Projet
+# Architecture du Projet
 
 Le déploiement suit un cycle de vie strict pour garantir la reproductibilité :
 
@@ -25,7 +25,7 @@ Le déploiement suit un cycle de vie strict pour garantir la reproductibilité :
 
     Expose : Flask fournit une API/Interface de monitoring.
 
-Quick Start
+# Quick Start
 
 1. Prérequis
 
